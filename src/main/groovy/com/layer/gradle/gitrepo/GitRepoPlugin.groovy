@@ -106,6 +106,7 @@ class GitRepoPlugin  implements Plugin<Project> {
         if(!project.hasProperty("offline")) {
             println("not offline");
             println(branch);
+            println(gitRepo);
             gitRepo.checkout(branch: branch)
             println(branch);
             gitRepo.pull()
