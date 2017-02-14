@@ -30,14 +30,15 @@ artifacts {
     archives javadocJar, sourcesJar
 }
 
-def repo = new File(rootDir, "./maven")
+def repo = new File(rootDir, "maven")
 
 uploadArchives {
     repositories {
         mavenDeployer {
             //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
             repository url: "file://${repo.absolutePath}"
-            pom.groupId = "${group}"
+            pom.groupId = "me.yukpiz"
+            pom.name = "gradle-git-repo-plugin"
             pom.project {
                 name 'Gradle Git Repo Plugin'
                 packaging 'jar'
