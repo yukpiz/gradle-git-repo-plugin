@@ -107,6 +107,7 @@ class GitRepoPlugin  implements Plugin<Project> {
             println("not offline");
             println(branch);
             println(gitRepo);
+            println("hogehoge");
             gitRepo.checkout(branch: branch)
             println(branch);
             gitRepo.pull()
