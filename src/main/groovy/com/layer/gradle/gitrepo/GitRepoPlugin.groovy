@@ -93,9 +93,6 @@ class GitRepoPlugin  implements Plugin<Project> {
     }
 
     private static File ensureLocalRepo(Project project, File directory, String name, String gitUrl, String branch) {
-        println("testtest====================================");
-        println(name);
-        println(gitUrl);
         def repoDir = new File(directory, name)
         def gitRepo;
         if(repoDir.directory || project.hasProperty("offline")) {
@@ -104,14 +101,8 @@ class GitRepoPlugin  implements Plugin<Project> {
             gitRepo= Grgit.clone(dir: repoDir, uri: gitUrl)
         }
         if(!project.hasProperty("offline")) {
-            println("not offline");
-            println(branch);
-            println(gitRepo);
-            println("hogehoge");
             gitRepo.checkout(branch: branch)
-            println(branch);
             gitRepo.pull()
-            println(branch);
         }
 
         return repoDir;
