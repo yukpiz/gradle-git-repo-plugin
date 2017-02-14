@@ -101,6 +101,7 @@ class GitRepoPlugin  implements Plugin<Project> {
             gitRepo= Grgit.clone(dir: repoDir, uri: gitUrl)
         }
         if(!project.hasProperty("offline")) {
+            gitRepo.fetch()
             gitRepo.checkout(branch: branch)
             gitRepo.pull()
         }
