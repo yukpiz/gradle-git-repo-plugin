@@ -102,12 +102,13 @@ class GitRepoPlugin  implements Plugin<Project> {
         }
         if(!project.hasProperty("offline")) {
             println "debug1"
-            gitRepo.pull()
+            gitRepo.fetch()
             println "debug2"
             gitRepo.checkout(branch: branch)
             println "debug3"
-            gitRepo.pull()
+            gitRepo.fetch()
             println "debug4"
+            gitRepo.pull()
         }
 
         return repoDir;
