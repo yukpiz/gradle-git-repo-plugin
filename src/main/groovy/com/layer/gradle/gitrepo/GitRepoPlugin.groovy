@@ -96,7 +96,6 @@ class GitRepoPlugin  implements Plugin<Project> {
         println("testtest====================================");
         println(name);
         println(gitUrl);
-        println(branch);
         def repoDir = new File(directory, name)
         def gitRepo;
         if(repoDir.directory || project.hasProperty("offline")) {
@@ -105,8 +104,11 @@ class GitRepoPlugin  implements Plugin<Project> {
             gitRepo= Grgit.clone(dir: repoDir, uri: gitUrl)
         }
         if(!project.hasProperty("offline")) {
+            println(branch);
             gitRepo.checkout(branch: branch)
+            println(branch);
             gitRepo.pull()
+            println(branch);
         }
 
         return repoDir;
