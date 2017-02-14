@@ -93,7 +93,7 @@ class GitRepoPlugin  implements Plugin<Project> {
     }
 
     private static File ensureLocalRepo(Project project, File directory, String name, String gitUrl, String branch) {
-        println("hogehoge ====================================");
+        println("testtest====================================");
         def repoDir = new File(directory, name)
         def gitRepo;
         if(repoDir.directory || project.hasProperty("offline")) {
